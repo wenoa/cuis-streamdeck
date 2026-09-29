@@ -1,0 +1,26 @@
+{
+  "Name": "Cuis",
+  "Version": "0.0.0.0",
+  "Author": "Wenoa Studio",
+  "Actions": [],
+  "Category": "Cuis",
+  "CategoryIcon": "images/plugin/category-icon",
+  "CodePath": "bin/plugin.js",
+  "Description": "Control Cuis Smalltalk from your Stream Deck",
+  "Icon": "images/plugin/default-icon",
+  "SDKVersion": 3,
+  "Software": {
+    "MinimumVersion": "6.9"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "12"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20",
+    "Debug": "enabled"
+  },
+  "UUID": "studio.wenoa.cuis"
+}
