@@ -1,0 +1,15 @@
+# IDEs
+.idea/
+
+# Node.js
+node_modules/
+coverage/
+
+# Logs
+logs/
+
+# Stream Deck files
+*.sdPlugin/bin
+*.sdPlugin/logs
+*.streamDeckPlugin
+.DS_Store
