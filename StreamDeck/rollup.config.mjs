@@ -2,6 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import url from "node:url";
 
@@ -43,6 +44,16 @@ const config = {
         this.emitFile({
           fileName: "package.json",
           source: `{ "type": "module" }`,
+          type: "asset",
+        });
+      }
+    },
+    {
+      name: "emit-property-inspector-components",
+      generateBundle() {
+        this.emitFile({
+          fileName: "sdpi-components.js",
+          source: readFileSync(url.fileURLToPath(import.meta.resolve("sdpi-components")), "utf8"),
           type: "asset",
         });
       }
