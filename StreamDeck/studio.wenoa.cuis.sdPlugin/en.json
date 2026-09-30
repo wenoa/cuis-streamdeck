@@ -1,5 +1,81 @@
 {
   "Name": "Cuis",
   "Description": "Control Cuis Smalltalk from your Stream Deck",
-  "Category": "Cuis"
+  "Category": "Cuis",
+  "studio.wenoa.cuis.browser": {
+    "Name": "Browser",
+    "Tooltip": "Opens a browser"
+  },
+  "studio.wenoa.cuis.workspace": {
+    "Name": "Workspace",
+    "Tooltip": "Opens a workspace"
+  },
+  "studio.wenoa.cuis.text-editor": {
+    "Name": "Text Editor",
+    "Tooltip": "Opens a text editor"
+  },
+  "studio.wenoa.cuis.message-names": {
+    "Name": "Message Names",
+    "Tooltip": "Opens message names"
+  },
+  "studio.wenoa.cuis.transcript": {
+    "Name": "Transcript",
+    "Tooltip": "Opens the transcript"
+  },
+  "studio.wenoa.cuis.test-runner": {
+    "Name": "SUnit Test Runner",
+    "Tooltip": "Opens the SUnit test runner"
+  },
+  "studio.wenoa.cuis.process-browser": {
+    "Name": "Process Browser",
+    "Tooltip": "Opens a process browser"
+  },
+  "studio.wenoa.cuis.change-sorter": {
+    "Name": "Change Sorter",
+    "Tooltip": "Opens a change sorter"
+  },
+  "studio.wenoa.cuis.installed-packages": {
+    "Name": "Installed Packages",
+    "Tooltip": "Opens the installed packages"
+  },
+  "studio.wenoa.cuis.increase-gui-size": {
+    "Name": "Increase GUI Size",
+    "Tooltip": "Makes the GUI elements bigger"
+  },
+  "studio.wenoa.cuis.decrease-gui-size": {
+    "Name": "Decrease GUI Size",
+    "Tooltip": "Makes the GUI elements smaller"
+  },
+  "studio.wenoa.cuis.full-screen-on": {
+    "Name": "Full Screen On",
+    "Tooltip": "Turns full screen on"
+  },
+  "studio.wenoa.cuis.full-screen-off": {
+    "Name": "Full Screen Off",
+    "Tooltip": "Turns full screen off"
+  },
+  "studio.wenoa.cuis.set-code-author": {
+    "Name": "Set Code Author",
+    "Tooltip": "Sets the code author"
+  },
+  "studio.wenoa.cuis.save-image": {
+    "Name": "Save Image",
+    "Tooltip": "Saves the image"
+  },
+  "studio.wenoa.cuis.save-image-as": {
+    "Name": "Save Image As",
+    "Tooltip": "Saves the image with a new name"
+  },
+  "studio.wenoa.cuis.save-image-and-quit": {
+    "Name": "Save Image and Quit",
+    "Tooltip": "Saves the image and quits"
+  },
+  "studio.wenoa.cuis.quit-without-saving": {
+    "Name": "Quit Without Saving",
+    "Tooltip": "Quits without saving the image"
+  },
+  "studio.wenoa.cuis.evaluate": {
+    "Name": "Evaluate",
+    "Tooltip": "Evaluates Smalltalk code"
+  }
 }

@@ -2,7 +2,275 @@
   "Name": "Cuis",
   "Version": "0.0.0.0",
   "Author": "Wenoa Studio",
-  "Actions": [],
+  "Actions": [
+    {
+      "Name": "Browser",
+      "UUID": "studio.wenoa.cuis.browser",
+      "Icon": "images/actions/browser",
+      "Tooltip": "Opens a browser",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/browser"
+        }
+      ]
+    },
+    {
+      "Name": "Workspace",
+      "UUID": "studio.wenoa.cuis.workspace",
+      "Icon": "images/actions/workspace-icon",
+      "Tooltip": "Opens a workspace",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/workspace"
+        }
+      ]
+    },
+    {
+      "Name": "Text Editor",
+      "UUID": "studio.wenoa.cuis.text-editor",
+      "Icon": "images/actions/text-editor",
+      "Tooltip": "Opens a text editor",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/text-editor"
+        }
+      ]
+    },
+    {
+      "Name": "Message Names",
+      "UUID": "studio.wenoa.cuis.message-names",
+      "Icon": "images/actions/message-names",
+      "Tooltip": "Opens message names",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/message-names"
+        }
+      ]
+    },
+    {
+      "Name": "Transcript",
+      "UUID": "studio.wenoa.cuis.transcript",
+      "Icon": "images/actions/transcript",
+      "Tooltip": "Opens the transcript",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/transcript"
+        }
+      ]
+    },
+    {
+      "Name": "SUnit Test Runner",
+      "UUID": "studio.wenoa.cuis.test-runner",
+      "Icon": "images/actions/test-runner",
+      "Tooltip": "Opens the SUnit test runner",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/test-runner"
+        }
+      ]
+    },
+    {
+      "Name": "Process Browser",
+      "UUID": "studio.wenoa.cuis.process-browser",
+      "Icon": "images/actions/process-browser",
+      "Tooltip": "Opens a process browser",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/process-browser"
+        }
+      ]
+    },
+    {
+      "Name": "Change Sorter",
+      "UUID": "studio.wenoa.cuis.change-sorter",
+      "Icon": "images/actions/change-sorter",
+      "Tooltip": "Opens a change sorter",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/change-sorter"
+        }
+      ]
+    },
+    {
+      "Name": "Installed Packages",
+      "UUID": "studio.wenoa.cuis.installed-packages",
+      "Icon": "images/actions/installed-packages",
+      "Tooltip": "Opens the installed packages",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/installed-packages"
+        }
+      ]
+    },
+    {
+      "Name": "Increase GUI Size",
+      "UUID": "studio.wenoa.cuis.increase-gui-size",
+      "Icon": "images/actions/increase-gui-size",
+      "Tooltip": "Makes the GUI elements bigger",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/increase-gui-size"
+        }
+      ]
+    },
+    {
+      "Name": "Decrease GUI Size",
+      "UUID": "studio.wenoa.cuis.decrease-gui-size",
+      "Icon": "images/actions/decrease-gui-size",
+      "Tooltip": "Makes the GUI elements smaller",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/decrease-gui-size"
+        }
+      ]
+    },
+    {
+      "Name": "Full Screen On",
+      "UUID": "studio.wenoa.cuis.full-screen-on",
+      "Icon": "images/actions/full-screen-on",
+      "Tooltip": "Turns full screen on",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/full-screen-on"
+        }
+      ]
+    },
+    {
+      "Name": "Full Screen Off",
+      "UUID": "studio.wenoa.cuis.full-screen-off",
+      "Icon": "images/actions/full-screen-off",
+      "Tooltip": "Turns full screen off",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/full-screen-off"
+        }
+      ]
+    },
+    {
+      "Name": "Set Code Author",
+      "UUID": "studio.wenoa.cuis.set-code-author",
+      "Icon": "images/actions/set-code-author",
+      "Tooltip": "Sets the code author",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/set-code-author"
+        }
+      ]
+    },
+    {
+      "Name": "Save Image",
+      "UUID": "studio.wenoa.cuis.save-image",
+      "Icon": "images/actions/save-image",
+      "Tooltip": "Saves the image",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/save-image"
+        }
+      ]
+    },
+    {
+      "Name": "Save Image As",
+      "UUID": "studio.wenoa.cuis.save-image-as",
+      "Icon": "images/actions/save-image-as",
+      "Tooltip": "Saves the image with a new name",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/save-image-as"
+        }
+      ]
+    },
+    {
+      "Name": "Save Image and Quit",
+      "UUID": "studio.wenoa.cuis.save-image-and-quit",
+      "Icon": "images/actions/save-image-and-quit",
+      "Tooltip": "Saves the image and quits",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/save-image-and-quit"
+        }
+      ]
+    },
+    {
+      "Name": "Quit Without Saving",
+      "UUID": "studio.wenoa.cuis.quit-without-saving",
+      "Icon": "images/actions/quit-without-saving",
+      "Tooltip": "Quits without saving the image",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/quit-without-saving"
+        }
+      ]
+    },
+    {
+      "Name": "Evaluate",
+      "UUID": "studio.wenoa.cuis.evaluate",
+      "Icon": "images/actions/evaluate",
+      "Tooltip": "Evaluates Smalltalk code",
+      "PropertyInspectorPath": "ui/evaluate.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/actions/evaluate"
+        }
+      ]
+    }
+  ],
   "Category": "Cuis",
   "CategoryIcon": "images/plugin/category-icon",
   "CodePath": "bin/plugin.js",

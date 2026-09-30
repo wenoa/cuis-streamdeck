@@ -29,12 +29,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: [
-        "node_modules/",
-        "test/",
-        "**/*.config.*",
-        "studio.wenoa.cuis.sdPlugin/",
-      ],
+      include: ["src/**/*.ts"],
       thresholds: {
         lines: 100,
         functions: 100,
