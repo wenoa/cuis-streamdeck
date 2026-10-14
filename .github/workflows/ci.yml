@@ -9,8 +9,8 @@ defaults:
     working-directory: StreamDeck
 
 jobs:
-  test:
-    name: 🧪 Plugin test
+  streamdeck-test:
+    name: 🧪 Stream Deck plugin test
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
@@ -38,10 +38,28 @@ jobs:
           npm run build
           npm run pack
 
+  cuis-test:
+    name: 🧪 Cuis package test
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: Cuis
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: 📥 Clone Cuis and the packages it lacks
+        run: |
+          git clone --depth 1 https://github.com/Cuis-Smalltalk/Cuis-Smalltalk-Dev.git Dev
+          git clone --depth 1 https://github.com/Cuis-Smalltalk/OSProcess.git
+
+      - name: 🧪 Run tests
+        run: Dev/RunCuisOnLinux.sh -vm-display-null Dev/CuisImage/Cuis*.image -s RunTests.st
+
   release:
     name: 🚀 Release
     runs-on: ubuntu-26.04
-    needs: test
+    needs: [streamdeck-test, cuis-test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v7
