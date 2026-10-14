@@ -1,5 +1,7 @@
 # Cuis for Stream Deck
 
+![A Stream Deck showing the Cuis keys](cover.jpeg)
+
 ## What does it do?
 
 This plugin lets you control [Cuis Smalltalk](https://cuis.st) from your Stream Deck.
