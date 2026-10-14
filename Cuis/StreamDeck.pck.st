@@ -1,4 +1,4 @@
-'From Cuis7.9 [latest update: #8257] on 13 October 2026 at 5:21:25 pm'!
+'From Cuis7.9 [latest update: #8257] on 14 October 2026 at 10:18:19 am'!
 'Description '!
 !provides: 'StreamDeck' 0 0!
 !requires: 'Identities-UUID' nil nil nil!
@@ -403,36 +403,46 @@ initializeAtPort: aPortNumber onInterface: anInterfaceAddress authenticatingWith
 	evaluationProcess := aProcess.
 	webServer := aWebServer! !
 
-!StreamDeckServer methodsFor: 'serving' stamp: 'CAP 12/Oct/2026, 12:11:06 am (UTC)'!
+!StreamDeckServer methodsFor: 'serving' stamp: 'unknown 14/Oct/2026, 1:16:29 pm (UTC)'!
+evaluateCodeFromRequest: aWebRequest
+
+	^ evaluationProcess do: [
+		[ aWebRequest send200Response:
+			(Compiler evaluate: (UnicodeString fromUtf8Bytes: aWebRequest content asByteArray)) printString ]
+			on: Error
+			do: [ :error |
+				self respondTo: aWebRequest withCode: 500 andContent: error description asUtf8Bytes ] ]! !
+
+!StreamDeckServer methodsFor: 'serving' stamp: 'unknown 14/Oct/2026, 1:16:29 pm (UTC)'!
+handleCodeEvaluationRequest: aWebRequest
+
+	^ self ifAuthenticated: aWebRequest do: [
+		self evaluateCodeFromRequest: aWebRequest ]! !
+
+!StreamDeckServer methodsFor: 'serving' stamp: 'unknown 14/Oct/2026, 1:12:41 pm (UTC)'!
 ifAuthenticated: aWebRequest do: aClosure
 
 	(aWebRequest headerAt: 'Authorization') = ('Bearer ', token)
 		ifTrue: aClosure
-		ifFalse: [
-			aWebRequest
-				sendResponseCode: 401
-				content: ''
-				type: 'text/plain; charset=utf-8'
-				close: false ]! !
+		ifFalse: [ self respondTo: aWebRequest withCode: 401 andContent: '' ]! !
 
-!StreamDeckServer methodsFor: 'serving' stamp: 'CAP 12/Oct/2026, 12:11:05 am (UTC)'!
+!StreamDeckServer methodsFor: 'serving' stamp: 'unknown 14/Oct/2026, 12:50:16 pm (UTC)'!
+respondTo: aWebRequest withCode: aResponseCode andContent: aResponseContent
+
+	^ aWebRequest
+		sendResponseCode: aResponseCode
+		content: aResponseContent
+		type: 'text/plain; charset=utf-8'
+		close: false! !
+
+!StreamDeckServer methodsFor: 'serving' stamp: 'unknown 14/Oct/2026, 1:10:47 pm (UTC)'!
 start
 
 	webServer
 		addService: '/evaluations'
-		action: [ :aWebRequest |
-			self ifAuthenticated: aWebRequest do: [
-				evaluationProcess do: [
-					[ aWebRequest send200Response:
-						(Compiler evaluate: (UnicodeString fromUtf8Bytes: aWebRequest content asByteArray)) printString ]
-						on: Error
-						do: [ :error |
-							aWebRequest
-								sendResponseCode: 500
-								content: error description asUtf8Bytes
-								type: 'text/plain; charset=utf-8'
-								close: false ] ] ] ].
-	webServer listenOn: portNumber interface: interfaceAddress! !
+		action: [ :aWebRequest | self handleCodeEvaluationRequest: aWebRequest ];
+
+		listenOn: portNumber interface: interfaceAddress! !
 
 !StreamDeckServer methodsFor: 'serving' stamp: 'CAP 12/Oct/2026, 1:20:07 am (UTC)'!
 stop
