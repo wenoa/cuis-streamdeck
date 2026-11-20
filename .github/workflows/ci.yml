@@ -61,6 +61,8 @@ jobs:
     runs-on: ubuntu-26.04
     needs: [streamdeck-test, cuis-test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
     defaults:
       run:
         working-directory: .
@@ -92,13 +94,12 @@ jobs:
         run: |
           echo "version=$(git mkver next)" | tee -a $GITHUB_OUTPUT
 
-      # Dry run until the first version is ready: nothing is committed, tagged or released.
-      # - name: 💾 Commit version changes
-      #   run: |
-      #     git add .
-      #     git commit -m "chore: version update"
-      #     git mkver tag
-      #     git push && git push --tags
+      - name: 💾 Commit version changes
+        run: |
+          git add -A
+          git commit -m "chore: version update"
+          git mkver tag
+          git push && git push --tags
 
       - name: 📦 Final build
         working-directory: StreamDeck
@@ -106,11 +107,11 @@ jobs:
           npm run build
           npm run pack
 
-      # - name: 🚀 Create GitHub Release
-      #   uses: softprops/action-gh-release@v3
-      #   with:
-      #     tag_name: ${{ steps.version.outputs.version }}
-      #     name: ${{ steps.version.outputs.version }}
-      #     files: StreamDeck/studio.wenoa.cuis.streamDeckPlugin
-      #     draft: false
-      #     prerelease: false
+      - name: 🚀 Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
+          files: StreamDeck/studio.wenoa.cuis.streamDeckPlugin
+          draft: false
+          prerelease: false

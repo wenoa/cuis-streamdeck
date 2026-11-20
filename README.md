@@ -30,16 +30,9 @@ It isn't on the Elgato Marketplace yet, so for now it's installed from this repo
 
 ### In Stream Deck
 
-1. Build the plugin:
+1. Download `studio.wenoa.cuis.streamDeckPlugin` from the [latest release](https://github.com/wenoa/cuis-streamdeck/releases/latest).
 
-   ```bash
-   cd StreamDeck
-   npm ci
-   npm run build
-   npm run pack
-   ```
-
-2. Double-click `StreamDeck/studio.wenoa.cuis.streamDeckPlugin`. Stream Deck will install the plugin.
+2. Double-click it. Stream Deck will install the plugin.
 
 ### How do they find each other?
 
