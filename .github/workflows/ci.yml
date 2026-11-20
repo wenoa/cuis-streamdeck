@@ -61,6 +61,9 @@ jobs:
     runs-on: ubuntu-26.04
     needs: [streamdeck-test, cuis-test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        working-directory: .
     steps:
       - uses: actions/checkout@v7
         with:
@@ -78,9 +81,10 @@ jobs:
           version: 1.3.0
 
       - name: 📝 Update version in files
-        run: git-mkver patch
+        run: git mkver patch
 
       - name: 📦 Update package-lock.json
+        working-directory: StreamDeck
         run: npm install
 
       - name: 🔢 Get version
@@ -97,6 +101,7 @@ jobs:
       #     git push && git push --tags
 
       - name: 📦 Final build
+        working-directory: StreamDeck
         run: |
           npm run build
           npm run pack
