@@ -1,10 +1,10 @@
-'From Cuis7.9 [latest update: #8257] on 14 October 2026 at 10:18:19 am'!
+'From Cuis7.9 [latest update: #8340] on 20 November 2026 at 6:01:10 pm'!
 'Description '!
-!provides: 'StreamDeck' 0 0!
-!requires: 'Identities-UUID' nil nil nil!
-!requires: 'WebClient' nil nil nil!
-!requires: 'JSON' nil nil nil!
-!requires: 'OSProcess' nil nil nil!
+!provides: 'StreamDeck' '0.0.0'!
+!requires: 'Identities-UUID' '1.11.0' '1.*.*'!
+!requires: 'WebClient' '1.39.0' '1.*.*'!
+!requires: 'JSON' '1.29.0' '1.*.*'!
+!requires: 'OSProcess' '1.37.0' '1.*.*'!
 SystemOrganization addCategory: #'StreamDeck-Server'!
 SystemOrganization addCategory: #'StreamDeck-Tests'!
 SystemOrganization addCategory: #'StreamDeck-Fakes'!
@@ -121,35 +121,35 @@ StreamDeckServerTest class
 	instanceVariableNames: ''!
 
 
-!StreamDeckInMemoryFile commentStamp: '<historical>' prior: 0!
+!StreamDeckInMemoryFile commentStamp: '<historical>'!
 Behaves like a FileEntry in the tests, holding its contents in memory.
 
 Like a FileEntry, it can be read by others when it is created, until it is made readable only by its owner. It keeps everything written to it while others could read it, which is how the tests know that a token was never exposed.!
 
-!StreamDeckInMemoryFolder commentStamp: '<historical>' prior: 0!
+!StreamDeckInMemoryFolder commentStamp: '<historical>'!
 Behaves like a DirectoryEntry in the tests, holding its files in memory.
 
 Like a DirectoryEntry, #// answers the file with that name, a missing one if nothing was written to it yet.!
 
-!StreamDeckInstantUserInterfaceProcess commentStamp: '<historical>' prior: 0!
+!StreamDeckInstantUserInterfaceProcess commentStamp: '<historical>'!
 Evaluates closures right away, in the process that asks for it.
 
 Behaves like StreamDeckUserInterfaceProcess in the tests, without waiting for the user interface.!
 
-!StreamDeckOfflineWebRequest commentStamp: '<historical>' prior: 0!
+!StreamDeckOfflineWebRequest commentStamp: '<historical>'!
 Behaves like WebRequest in the tests.
 
 Its content is the body as it arrives over the network, one character per byte, and it keeps the response it is answered with. An evaluation in the user interface process answers later, so #response waits up to two seconds for it.!
 
-!StreamDeckOfflineWebResponse commentStamp: '<historical>' prior: 0!
+!StreamDeckOfflineWebResponse commentStamp: '<historical>'!
 The response a StreamDeckOfflineWebRequest was answered with: its code and its content, as a WebResponse holds them.!
 
-!StreamDeckOfflineWebServer commentStamp: '<historical>' prior: 0!
+!StreamDeckOfflineWebServer commentStamp: '<historical>'!
 Behaves like WebServer in the tests, answering only the messages StreamDeckServer sends to it, without opening any socket.
 
 Requests are delivered with #post:to:authorization:, which answers the response. Like WebServer, it answers 404 to a path without a service and 500 when its action fails.!
 
-!StreamDeckServer commentStamp: '<historical>' prior: 0!
+!StreamDeckServer commentStamp: '<historical>'!
 Lets the Stream Deck plugin evaluate Smalltalk code in this image.
 
 Answers POST /evaluations. The body is the code, encoded as UTF-8, and the request has to carry the token in its Authorization header, as Bearer <token>. A request without it is answered 401 and its code is not evaluated.
@@ -158,22 +158,22 @@ The code is evaluated in the evaluation process, the user interface process unle
 
 Serves through a WebServer, or anything that answers the same messages, listening on the given port and interface.!
 
-!StreamDeckSettingsFile commentStamp: '<historical>' prior: 0!
+!StreamDeckSettingsFile commentStamp: '<historical>'!
 The .cuisdeck.json file of a home folder, which this image and the Stream Deck plugin share to agree on a port and a token.
 
 Creates the server that listens on that port and requires that token. When the file is missing, it is created with the port 2847 and a new random token, and made readable only by its owner before the token is written into it, so that nobody else can ever read the token.!
 
-!StreamDeckUserInterfaceProcess commentStamp: '<historical>' prior: 0!
+!StreamDeckUserInterfaceProcess commentStamp: '<historical>'!
 Evaluates closures in the user interface process, once it is in a safe state.
 
 That is where the code sent by the Stream Deck runs: windows open and dialogs ask as they would from a Workspace.!
 
-!StreamDeckServerIntegrationTest commentStamp: '<historical>' prior: 0!
+!StreamDeckServerIntegrationTest commentStamp: '<historical>'!
 Tests what the offline tests take for granted: that the real WebServer, its sockets and the files on disk behave as the fakes do.
 
 Works in a temporary folder among the user files of the image, not in the home of the user, and removes it when done.!
 
-!StreamDeckServerTest commentStamp: '<historical>' prior: 0!
+!StreamDeckServerTest commentStamp: '<historical>'!
 Tests StreamDeckServer and StreamDeckSettingsFile with no contact with the outside.
 
 Requests go through a StreamDeckOfflineWebServer, settings files live in a StreamDeckInMemoryFolder, and the code sent by the Stream Deck is evaluated by a StreamDeckInstantUserInterfaceProcess, except where evaluating in the user interface process is what is being tested.!
