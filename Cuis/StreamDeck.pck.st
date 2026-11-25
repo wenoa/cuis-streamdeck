@@ -1,6 +1,6 @@
 'From Cuis7.9 [latest update: #8340] on 20 November 2026 at 6:01:10 pm'!
 'Description '!
-!provides: 'StreamDeck' '0.1.0'!
+!provides: 'StreamDeck' '0.1.1'!
 !requires: 'Identities-UUID' '1.11.0' '1.*.*'!
 !requires: 'WebClient' '1.39.0' '1.*.*'!
 !requires: 'JSON' '1.29.0' '1.*.*'!

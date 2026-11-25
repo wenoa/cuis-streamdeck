@@ -1,6 +1,6 @@
 {
   "name": "cuis-streamdeck",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stream Deck plugin to control Cuis Smalltalk",
   "author": "Wenoa Studio <https://wenoa.studio>",
   "license": "Apache-2.0",
