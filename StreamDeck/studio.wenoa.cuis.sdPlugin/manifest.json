@@ -1,5 +1,5 @@
 {
-  "Name": "Cuis",
+  "Name": "Cuis Smalltalk",
   "Version": "0.1.0.0",
   "Author": "Wenoa Studio",
   "Actions": [
@@ -271,7 +271,7 @@
       ]
     }
   ],
-  "Category": "Cuis",
+  "Category": "Cuis Smalltalk",
   "CategoryIcon": "images/plugin/category-icon",
   "CodePath": "bin/plugin.js",
   "Description": "Control Cuis Smalltalk from your Stream Deck",

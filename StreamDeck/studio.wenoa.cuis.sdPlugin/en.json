@@ -1,7 +1,7 @@
 {
-  "Name": "Cuis",
+  "Name": "Cuis Smalltalk",
   "Description": "Control Cuis Smalltalk from your Stream Deck",
-  "Category": "Cuis",
+  "Category": "Cuis Smalltalk",
   "studio.wenoa.cuis.browser": {
     "Name": "Browser",
     "Tooltip": "Opens a browser"
